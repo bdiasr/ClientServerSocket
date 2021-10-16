@@ -11,10 +11,5 @@ struct sockaddr_in{
     unsigned char sin_zero[8];
 };
 
-struct ips{
-    char serverIP[15] = "000.000.00.0";
-    char clientIP[15] = "000.000.00.0";
-};
-
 
 

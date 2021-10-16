@@ -1,10 +1,10 @@
 #include <string.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#define PORT 80
-
-
 #include "connect.h"
+#include "ip.h"
+
+#define PORT 80
 
 
 /*
@@ -14,7 +14,10 @@ gcc -o main *.c
 int main(){
     int Socket; 
 
-    struct sockaddr_in endereco; 
+    struct sockaddr_in local;
+    struct ips IP; 
+
+    
 
     Socket = socket(AF_INET, SOCK_STREAM, 0);
     if(Socket == -1){
@@ -24,7 +27,7 @@ int main(){
 
     local.sin_family = AF_INET;
     local.sin_port = htons(MINHA_PORTA);
-    local.sin_addr.s_addr = inet_addr();
-    bind(Meusocket,(struct sockaddr *)&local,sizeof(struct sockaddr));
+    local.sin_addr.s_addr = inet_addr(IP.serverIP);
 
+    return 0;
 }
